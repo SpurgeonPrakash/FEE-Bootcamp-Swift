@@ -3,6 +3,7 @@
         <head>
             <script type="text/javascript" src="js/calc.js"></script> 
             <link rel="shortcut icon" href="bts.ico">
+            <link rel="stylesheet" href="css/style.css">
         </head>
         <body>
         <form class="calcForm" name="calculator">
@@ -27,13 +28,15 @@
             </div>
             <div class="calcRow">
                 <input type="button" class="calcButton" value="0" onclick="numInput('0')" />
+                <input type="button" class="calcButton" value="/" onclick="setOperation('divide')" />
                 <input type="button" class="calcButton" value="." onclick="insertDecimal('.')" />
                 <input type="button" class="calcButton" value="C" onclick="clearDisplay()" />
                 <input type="button" class="calcButton" value="=" onclick="calculate()" />
             </div>
-        </form>
+        
         
         <div id="swift">
             <p>SWIFT</p>
           </div>
+        </form>
     </body>

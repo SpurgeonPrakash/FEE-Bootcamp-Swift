@@ -1,5 +1,13 @@
+
+body{
+  background-image: url("lisa.gif");
+  background-repeat: repeat;
+
+  
+}
 .calcForm{
     position: relative;
+    background-color: orange;
     width: 400px;
     border: 2px solid black;
     border-radius: 12px;
@@ -15,7 +23,7 @@
     font-size: 20px;
     font-weight: 900;
   }
-  .calcRow {
+  input[type=button] {
     background: lightGray;
     width: 20%;
     font-size: 20px;
