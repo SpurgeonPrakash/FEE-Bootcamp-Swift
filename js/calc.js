@@ -72,6 +72,9 @@ function setOperation(command) {
     else if (queuedOperation == 3) {
         storedNum = evalStored * evalDisplay;
     }
+    else if (queuedOperation == 4) {
+        storedNum = evalStored / evalDisplay;
+    }
 
     
     if (command == 'add') {
@@ -82,6 +85,9 @@ function setOperation(command) {
     }
     if (command == 'multiply') {
         operation = 3;
+    }
+    if (command == 'divide') {
+        operation = 4;
     }
 
     
@@ -106,6 +112,9 @@ function calculate() {
     }
     else if (operation == 3) {
         displayNum = evalStored * evalDisplay;
+    }
+    else if (operation == 4) {
+        displayNum = evalStored / evalDisplay;
     }
     
     display.value = displayNum;
