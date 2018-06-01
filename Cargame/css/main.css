@@ -6,7 +6,7 @@ body{
 }
 h1 {
     font-family: cursive;
-    color: chocolate;
+    color: whitesmoke;
     text-align:center;
     position: relative;
     display: inline-block;
@@ -36,8 +36,7 @@ body{
 }
 .container
 {
-    background-color: bisque;
-    background: url("bts.gif"); 
+    background-color: wheat;
     height: 40px;
     width: 1504px;
     height: 566px;
@@ -59,7 +58,7 @@ body{
 #buttons{
     position: absolute;
     bottom: 68px;
-    left: 744px;
+    left: 680px;
     justify-content: space-between;
     font-family:cursive;
 }
@@ -70,8 +69,17 @@ body{
     background-color: purple;
 }
 #start{
-    background-color: chocolate;
+    background-color: wheat;
 }
 #stop{
-    background-color: chocolate;
+    background-color: wheat;
 }
+input[type=button] {
+    background: lightGray;
+    width: 40%;
+    font-size: 25px;
+    font-weight: 600;
+    border-radius: 7px;
+    margin-left: 13px;
+    margin-top: 10px;
+  }
