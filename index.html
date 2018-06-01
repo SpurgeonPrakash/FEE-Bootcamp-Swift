@@ -1,46 +1,42 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Calculator</title>
+    <html>
+        <head>
+            <script type="text/javascript" src="js/calc.js"></script> 
+            <link rel="shortcut icon" href="bts.ico">
+            <link rel="stylesheet" href="css/style.css">
+        </head>
+        <body>
+        <form class="calcForm" name="calculator">
+            <input type="text" class="calcDisplay" id="display" />
+            <div class="calcRow">
+                <input type="button" class="calcButton" value="7" onclick="numInput('7')" />
+                <input type="button" class="calcButton" value="8" onclick="numInput('8')" />
+                <input type="button" class="calcButton" value="9" onclick="numInput('9')" />
+                <input type="button" class="calcButton" value="+" onclick="setOperation('add')" />
+            </div>
+            <div class="calcRow">
+                <input type="button" class="calcButton" value="4" onclick="numInput('4')" />
+                <input type="button" class="calcButton" value="5" onclick="numInput('5')" />
+                <input type="button" class="calcButton" value="6" onclick="numInput('6')" />
+                <input type="button" class="calcButton" value="-" onclick="setOperation('subtract')" />
+            </div>
+            <div class="calcRow">
+                <input type="button" class="calcButton" value="1" onclick="numInput('1')" />
+                <input type="button" class="calcButton" value="2" onclick="numInput('2')" />
+                <input type="button" class="calcButton" value="3" onclick="numInput('3')" />
+                <input type="button" class="calcButton" value="x" onclick="setOperation('multiply')" />
+            </div>
+            <div class="calcRow">
+                <input type="button" class="calcButton" value="0" onclick="numInput('0')" />
+                <input type="button" class="calcButton" value="/" onclick="setOperation('divide')" />
+                <input type="button" class="calcButton" value="." onclick="insertDecimal('.')" />
+                <input type="button" class="calcButton" value="C" onclick="clearDisplay()" />
+                <input type="button" class="calcButton" value="=" onclick="calculate()" />
+            </div>
         
-    </head>
-    <body>
-        <div id='calc-contain'>
-  
-          <form name="calculator">
-            
-            <input type="text" name="answer" />
-            <br>
-            
-            <input type="button" value=" 1 " />
-            <input type="button" value=" 2 " />
-            <input type="button" value=" 3 " />
-            <input type="button" value=" + " />
-            <br/>
-            
-            <input type="button" value=" 4 " />
-            <input type="button" value=" 5 " />
-            <input type="button" value=" 6 " />
-            <input type="button" value=" - " />
-            </br>
-          
-            <input type="button" value=" 7 " />
-            <input type="button" value=" 8 " />
-            <input type="button" value=" 9 " />
-            <input type="button" value=" x " />
-            </br>
         
-            <input type="button" value=" c "/>
-            <input type="button" value=" 0 " />
-            <input type="button" value=" = "/>
-            <input type="button" value=" / " />
-            </br>
-  
-    
-          </form>
-          <div id="agh">
+        <div id="swift">
             <p>SWIFT</p>
           </div>
-        </div>
+        </form>
     </body>
-</html>
