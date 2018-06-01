@@ -1,7 +1,7 @@
 
 body{
   background-image: url("tenor.gif");
-  background-repeat: repeat;
+  background-repeat:no-repeat;
   background-size:cover;
 
   
@@ -53,3 +53,18 @@ body{
     box-shadow: 4px 0px 12px black inset;
   }
   
+  @media screen and (max-width: 992px) {
+   body {
+    /*  background-color: blue;*/
+      background-size:cover;
+      
+    }
+  }
+  
+  /* On screens that are 600px or less, set the background color to olive */
+  @media screen and (max-width: 600px) {
+    body {
+     /* background-color: olive;*/
+      background-size:cover;
+    }
+  }
