@@ -1,5 +1,8 @@
+
 body{
-    margin:0px;
+    background-image: url("tae.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 h1 {
     font-family: cursive;
@@ -7,6 +10,7 @@ h1 {
     text-align:center;
     position: relative;
     display: inline-block;
+    left: 681px;
 }
 
 h1:after {
@@ -33,7 +37,7 @@ body{
 .container
 {
     background-color: bisque;
-    
+    background: url("bts.gif"); 
     height: 40px;
     width: 1504px;
     height: 566px;
@@ -52,7 +56,22 @@ body{
 {
     height: 40px;
 }
-.animate
-{
-    background: url("bts.gif");
+#buttons{
+    position: absolute;
+    bottom: 68px;
+    left: 744px;
+    justify-content: space-between;
+    font-family:cursive;
+}
+#start:hover{
+    background-color: purple;
+}
+#stop:hover{
+    background-color: purple;
+}
+#start{
+    background-color: chocolate;
+}
+#stop{
+    background-color: chocolate;
 }
