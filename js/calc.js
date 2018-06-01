@@ -7,6 +7,7 @@ displayNum = "";
 function clearDisplay() {
    
     var display = document.getElementById("display");
+    var display1 = document.getElementById("display1");
 
     
     displayNum = "";
@@ -14,12 +15,14 @@ function clearDisplay() {
     operation = 0;
     queuedOperation = 0;        
     display.value = displayNum;
+    display1.value = displayNum;
 
 }
 
 function numInput(num) {
    
     var display = document.getElementById("display");
+    var display1 = document.getElementById("display1");
 
     
     if ((display.value == "") && num == "0") {
@@ -35,6 +38,7 @@ function numInput(num) {
     else {
       display.value += num;
     }
+    display1.value += display.value;
 }
 
 function insertDecimal(dec) {
@@ -55,6 +59,8 @@ function setOperation(command) {
     
     var display = document.getElementById("display"),
             displayNum = display.value;
+            var display1 = document.getElementById("display1");
+            var symbol;
     
             evalDisplay = eval(displayNum),
             evalStored = eval(storedNum);
@@ -79,19 +85,24 @@ function setOperation(command) {
     
     if (command == 'add') {
         operation = 1;
+        symbol='+';
     }
     else if (command == 'subtract') {
         operation = 2;
+        symbol='-';
     }
     if (command == 'multiply') {
         operation = 3;
+        symbol='*';
     }
     if (command == 'divide') {
         operation = 4;
+        symbol='/';
     }
 
     
     queuedOperation = operation;
+    display1.value += symbol;
     
     display.value = '';
 }
