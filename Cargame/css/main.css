@@ -1,8 +1,40 @@
+
+body{
+    background-image: url("tae.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+h1 {
+    font-family: cursive;
+    color: whitesmoke;
+    text-align:center;
+    position: relative;
+    display: inline-block;
+    left: 681px;
+}
+
+h1:after {
+    position: absolute;
+    left: 50%;
+    content: '';
+    height: 40px;
+    height: 5px;
+    background:purple;
+    transition: all 0.5s linear;
+    width: 0;
+    bottom: 0;  
+}
+
+h1:hover:after {
+    width: 270px;
+    margin-left: -135px;
+}
 .container{
     width: 1000px;
     height: 500px;
     position: relative;
-    background: gray;
+    background-image: url("../images/background.jpg");
+    background-repeat: repeat;
     border:1px solid black;
     margin:20px auto;
 }
@@ -15,3 +47,38 @@
     width:130px;
     height:60px;
 }
+#buttons{
+    position: absolute;
+    bottom: 68px;
+    left: 680px;
+    justify-content: space-between;
+    font-family:cursive;
+}
+#start:hover{
+    background-color: purple;
+}
+#stop:hover{
+    background-color: purple;
+}
+#start{
+    background-color: wheat;
+}
+#stop{
+    background-color: wheat;
+}
+input[type=button] {
+    background: lightGray;
+    width: 40%;
+    font-size: 25px;
+    font-weight: 600;
+    border-radius: 7px;
+    margin-left: 13px;
+    margin-top: 10px;
+  }
+p{
+    color:whitesmoke;
+    font-size: 200%;
+    font-family: cursive;
+    float:right;
+}
+
