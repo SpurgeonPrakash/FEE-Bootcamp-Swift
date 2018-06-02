@@ -4,9 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Tic-Tac-Toe</title>
 </head>
+
 <body>
+    <div class="container">
+        <h1 id="Tic-Tac-Toe">Tic-Tac-Toe</h1>
+        <table>
+                <tbody>
+                <tr>
+                <td><button class="btn-group" onclick="play(this,1);">&nbsp;</button></td>
+                <td><button class="btn-group" onclick="play(this,2);">&nbsp;</button></td>
+                <td><button class="btn-group"onclick="play(this,4);">&nbsp;</button></td>
+                </tr>
+                <tr>
+                <td><button class="btn-group" onclick="play(this,8);">&nbsp;</button></td>
+                <td><button class="btn-group" onclick="play(this,16);">&nbsp;</button></td>
+                <td><button class="btn-group" onclick="play(this,32);">&nbsp;</button></td>
+                </tr>
+                <tr>
+                <td><button class="btn-group" onclick="play(this,64);">&nbsp;</button></td>
+                <td><button class="btn-group" onclick="play(this,128);">&nbsp;</button></td>
+                <td><button class="btn-group" onclick="play(this,256);">&nbsp;</button></td>
+                </tr>
+                </tbody>
+                </table>
+        <div class="btn-options">
+            <input type="button" class="options" onclick="undo()" value="Undo" />
+            <input type="reset"  class="options" onclick="reset()" value="Reset" />
+        </div>
+    </div>
+        <div class="players-details">
+            <div class="player1">
+               Player 1--->X<p class="score"> wins</p>  
+                
+            </div>
+            <div class="player2">
+                    Player 2--->O<p class="score"> wins</p>  
+            </div>
+
+        </div>
+            
+        <script src="js/game.js"></script>
     
 </body>
 </html>
+
