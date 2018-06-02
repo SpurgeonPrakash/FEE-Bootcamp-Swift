@@ -1,12 +1,12 @@
 var id, t, posx = 0, posy = 0;
 var key_num, flag = 0;
-var time = 10;
+var time = 15;
 var carobj = document.getElementById("car");
 var timer = 0;
 var highscore = localStorage.getItem("highscore");
 function changespeed(){
     clearInterval(id);
-    time=time-5;
+    time=time-10;
     arrows(key_num);
 }
 var speed_change=setInterval(changespeed,30000);
@@ -33,7 +33,9 @@ function game_over()
     clearInterval(t);
     high_score();
     timer = 0;
-    alert("Game Over!Try again");
+    document.getElementById('name').innerHTML="<span style='color:red'>Game Over</span>";
+    document.getElementById("cont").style.boxShadow="0px 0px 30px red";
+    //alert("Game Over!Try again");
     document.getElementById("score").innerHTML = 0;
     document.getElementById('image').src = "images/car_right.png";
     document.getElementById('image').style.width = '130px';
@@ -48,12 +50,15 @@ document.getElementById('start').onclick = function () {
     high_score();
     id = setInterval(moveright, time);
     t = setInterval(changeTime, 1000);
+    document.getElementById('name').innerHTML="ROAD RASH";
+    document.getElementById("cont").style.boxShadow="0px 0px 30px green";
     document.getElementById('bes_score').innerHTML = highscore;
 }
 document.getElementById('stop').onclick = function () {
     clearInterval(id);
     clearInterval(t);
     high_score();
+    timer = 0;
     document.getElementById('image').src = "images/car_right.png";
     carobj.style.left = "0px";
     carobj.style.top = "0px";
@@ -64,6 +69,8 @@ function arrows(key) {
         key_num = 39;
         clearInterval(id);
         clearInterval(t);
+        document.getElementById('name').innerHTML="ROAD RASH";
+        document.getElementById("cont").style.boxShadow="0px 0px 30px green";
         document.getElementById('image').src = "images/car_right.png";
         document.getElementById('image').style.width = '130px';
         document.getElementById('image').style.height = '60px';
@@ -74,6 +81,8 @@ function arrows(key) {
         key_num = 37;
         clearInterval(id);
         clearInterval(t);
+        document.getElementById('name').innerHTML="ROAD RASH";
+        document.getElementById("cont").style.boxShadow="0px 0px 30px green";
         document.getElementById('image').src = "images/car_left.png";
         document.getElementById('image').style.width = '130px';
         document.getElementById('image').style.height = '60px';
@@ -84,6 +93,8 @@ function arrows(key) {
         key_num = 38;
         clearInterval(id);
         clearInterval(t);
+        document.getElementById('name').innerHTML="ROAD RASH";
+        document.getElementById("cont").style.boxShadow="0px 0px 30px green";
         document.getElementById('image').src = "images/car_up.png";
         document.getElementById('image').style.width = '60px';
         document.getElementById('image').style.height = '130px';
@@ -94,6 +105,8 @@ function arrows(key) {
         key_num = 40;
         clearInterval(id);
         clearInterval(t);
+        document.getElementById('name').innerHTML="ROAD RASH";
+        document.getElementById("cont").style.boxShadow="0px 0px 30px green";
         document.getElementById('image').src = "images/car_down.png";
         document.getElementById('image').style.width = '60px';
         document.getElementById('image').style.height = '130px';

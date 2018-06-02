@@ -1,19 +1,17 @@
 
 body{
-    background-image: url("tae.gif");
+    /*background-image: url("tae.gif");*/
     background-repeat: no-repeat;
-    background-size: cover;
+    background-color:#efefef;
 }
 h1 {
-    font-family: cursive;
-    color: whitesmoke;
+    font-family: sans-serif;
+    color: grey;
     text-align:center;
-    position: relative;
-    display: inline-block;
-    left: 681px;
+    margin:0px;
 }
 
-h1:after {
+/*h1:after {
     position: absolute;
     left: 50%;
     content: '';
@@ -28,7 +26,7 @@ h1:after {
 h1:hover:after {
     width: 270px;
     margin-left: -135px;
-}
+}*/
 .container{
     width: 1000px;
     height: 500px;
@@ -37,6 +35,9 @@ h1:hover:after {
     background-repeat: repeat;
     border:1px solid black;
     margin:20px auto;
+}
+#cont{
+    box-shadow: 0 0 30px green;
 }
 .car{
     width: 50px;
@@ -47,24 +48,10 @@ h1:hover:after {
     width:130px;
     height:60px;
 }
-#buttons{
-    position: absolute;
-    bottom: 68px;
-    left: 680px;
-    justify-content: space-between;
-    font-family:cursive;
-}
-#start:hover{
-    background-color: purple;
-}
-#stop:hover{
-    background-color: purple;
-}
-#start{
-    background-color: wheat;
-}
-#stop{
-    background-color: wheat;
+.buttons{
+    width:500px;
+    margin-left:400px;
+    float:left;
 }
 input[type=button] {
     background: lightGray;
@@ -76,9 +63,10 @@ input[type=button] {
     margin-top: 10px;
   }
 p{
-    color:whitesmoke;
+    color:grey;
     font-size: 200%;
-    font-family: cursive;
-    float:right;
+    font-family: sans-serif;
+    float:left;
+    margin-top:7px;
 }
 
