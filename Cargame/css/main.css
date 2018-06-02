@@ -1,77 +1,17 @@
-
-body{
-    background-image: url("tae.gif");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-h1 {
-    font-family: cursive;
-    color: chocolate;
-    text-align:center;
+.container{
+    width: 1000px;
+    height: 500px;
     position: relative;
-    display: inline-block;
-    left: 681px;
+    background: gray;
+    border:1px solid black;
+    margin:20px auto;
 }
-
-h1:after {
-    position: absolute;
-    left: 50%;
-    content: '';
-    height: 40px;
-    height: 5px;
-    background:purple;
-    transition: all 0.5s linear;
-    width: 0;
-    bottom: 0;  
+.car{
+    width: 50px;
+    height: 50px;
+    position: relative;
 }
-
-h1:hover:after {
-    width: 270px;
-    margin-left: -135px;
-}
-body{
-    
-    background-color: cornsilk;
-
-}
-.container
-{
-    background-color: bisque;
-    background: url("bts.gif"); 
-    height: 40px;
-    width: 1504px;
-    height: 566px;
-    padding: 30px;    
-    border: 10px cadetblue;
-    box-sizing: border-box;
-    width: 50%;
-    border: 5px solid grey;
-    float: left;
-    position: absolute;
-    right: 395px;
-    top: 89px;
-
-}
-#image
-{
-    height: 40px;
-}
-#buttons{
-    position: absolute;
-    bottom: 68px;
-    left: 744px;
-    justify-content: space-between;
-    font-family:cursive;
-}
-#start:hover{
-    background-color: purple;
-}
-#stop:hover{
-    background-color: purple;
-}
-#start{
-    background-color: chocolate;
-}
-#stop{
-    background-color: chocolate;
+.car img{
+    width:130px;
+    height:60px;
 }
