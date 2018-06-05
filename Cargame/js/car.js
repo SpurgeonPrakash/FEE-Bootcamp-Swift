@@ -7,8 +7,12 @@ var up=38;
 var right=39;
 var down=40;
 var space=32;
+var left_border=872;
+var top_border=370;
+var intial_position=0;
 var highscore = localStorage.getItem("highscore");
 var carobj = document.getElementById("car");
+var audio = new Audio('audio/crash.wav');
 //chandgespeed is to increase the speed of the car
 function changespeed(){
     clearInterval(id);
@@ -41,6 +45,7 @@ function game_over()
     clearInterval(t);
     high_score();
     timer = 0;
+    audio.play();
     document.getElementById('name').innerHTML="<span style='color:red'>Game Over</span>";
     document.getElementById("cont").style.boxShadow="0px 0px 30px red";
     //alert("Game Over!Try again");
@@ -147,28 +152,28 @@ window.addEventListener('keydown', function (event) {
 }
 );
 function moveright() {
-    if (posx >= 872) {
+    if (posx >= left_border) {
        game_over();
     }
     carobj.style.left = posx + 'px';
     posx++;
 }
 function movedown() {
-    if (posy >= 370) {
+    if (posy >= top_border) {
        game_over();
     }
     carobj.style.top = posy + 'px';
     posy++;
 }
 function moveleft() {
-    if (posx < 0) {
+    if (posx < intial_position) {
        game_over();
     }
     carobj.style.left = posx + 'px';
     posx--;
 }
 function movetop() {
-    if (posy < 0) {
+    if (posy < intial_position) {
        game_over();
     }
     carobj.style.top = posy + 'px';
