@@ -2,8 +2,8 @@ var players=[];
 var values=['x','o'];
 undo_count=0;
 var scores=[0,0];
-players[0]="player1";
-players[1]="player2";
+players[0]="Player1";
+players[1]="Player2";
 var gameover=false;
 var winvalues=[7,56,73,84,146,273,292,448];
 var turn=0;
@@ -15,6 +15,7 @@ var modal = document.getElementById('myModal');
 function play(clickedBut,clickval)
 {
     grid_no=0;
+    undo_count=0;
     store=clickval;
     butpress=clickedBut;
     while(clickval>=2)
@@ -55,7 +56,7 @@ function win(){
         if((scores[turn] & winvalues[i])==winvalues[i]){
 		var playerText;
 
-		if(players[turn]=="player1"){
+		if(players[turn]=="Player1"){
 		  playerText="Player 1";
 		}
 		else{
