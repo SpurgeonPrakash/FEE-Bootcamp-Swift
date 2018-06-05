@@ -1,4 +1,4 @@
-@media screen and (max-width: 534px) {
+@media screen and (max-width: 534px) {  
     table{
         width:300px;
         height:300px;
@@ -8,11 +8,36 @@
     .container{
         margin:40px;
         text-align: center;
+        
     }
     .btn-options{
         margin-top:40px;
         align-content: center;
-    }    
+          }  
+         
+          input[type="button"] {
+            background:#0099ff;
+        }
+        
+        input[type="button"]:hover {
+            background:#ff0000;
+        }
+        input[type="reset"] {
+            background:#0099ff;
+        }
+        
+        input[type="reset"]:hover {
+            background:#ff0000;
+        }
+        
+    .top{
+        background-image: url("../images/secondimg.jpg");
+        background-repeat:no-repeat;
+        background-size:cover;
+        
+  
+     
+      }  
 }
 @media screen and (min-width: 535px) {
 table{
@@ -32,7 +57,26 @@ table{
     padding: 30px;
     align-content: center;
 }
+input[type="button"] {
+    background:#0099ff;
+}
 
+input[type="button"]:hover {
+    background:#ff0000;
+}
+input[type="reset"] {
+    background:#0099ff;
+}
+
+input[type="reset"]:hover {
+    background:#ff0000;
+}
+.top{
+    background-image: url("../images/secondimg.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+ 
+  }
 }
 tr{
     border:1px solid black;
@@ -41,7 +85,8 @@ td{
     border:1px solid black;
 }
 .btn-group {
-    background-color: #4CAF50; /* Green background */
+    background-color: transparent;/* Green background */
+    
     width: 100%;
     height:100%;
     color: white; /* White text */
@@ -52,4 +97,86 @@ td{
 }
 .options{
     margin-left: 10px;
+}
+.firstpage{
+ background-image: url("../images/secondimg.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+.gameStarts{
+  margin-top: 135px;
+    text-align: center;
+    font-size: 40px;
+
+}
+.heading{
+	margin-top: 128px;
+	 text-align: center;
+   	 font-size: 40px;
+}
+.bottombutton {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius:10px
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+ text-align: center;
+    font-size: 41px;
+height: 60%;
+
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.firstImage{
+	background-image: url("../images/firstimg.jpg");
+        background-repeat:no-repeat;
+        background-size:cover;
+}
+.modalImage{
+	background-image: url("../images/winnerimg.jpg");
+        background-repeat:no-repeat;
+        background-size:cover;
+}
+#Tic-Tac-Toe{
+    color: white;
 }
