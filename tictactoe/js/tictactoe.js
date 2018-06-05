@@ -88,7 +88,7 @@ function undo()
         undo_count++;
         switchplayers();
         scores[turn]-=store;
-        butpress.innerHTML="";
+        butpress.style="background-image:url('')";
         arr[grid_no]=undefined;
     }
     else if(!gameover)
