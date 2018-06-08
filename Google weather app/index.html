@@ -13,6 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
     <link href="css/style.css" rel="stylesheet">
+
     <title>Weather Application</title>
 </head>
 
@@ -28,20 +29,64 @@
     </div>
     <div class="main-container">
         <div class="searched-place" id="searched-place">
+            <span id="place">Hyderabad,Telangana
+            </span>
         </div>
-        <div class="day">
+        <div class="day" id="current-day">
+            <span id="day">Friday</span>
         </div>
         <div class="weather-condition">
         </div>
         <div class="banner">
             <div class="banner-left">
+                <div class="column1">
+                    icon
+                </div>
+                <div class="column2" id="temp-disp">
+                    <p id="temp">40</p>
+                        <sup>
+                            <a href="">&#8457;</a>/
+                            <a href="">&#8451;</a>
+                        </sup>
+
+                </div>
+
             </div>
             <div class="banner-right">
+                <div class="row1">
+                    <div class="precipitation"> Precipitation:
+                        <span id="precipitation"> 80%</span>
+                    </div>
+                    <div class="humidity"> Humidity:
+                        <span id="humidity"> 80%</span>
+                    </div>
+                    <div class="wind"> Wind:
+                        <span id="wind"> 80%</span>
+                    </div>
+                </div>
+                <div class="row2">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary">Temperature</button>
+                        <button type="button" class="btn btn-primary">Precipitation</button>
+                        <button type="button" class="btn btn-primary">Wind</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="chart">
         </div>
         <div class="forecast">
+            <div class="row">
+                <span class="col-sm-1" style="background-color:lavender;">.col-sm-4</span>
+                <span class="col-sm-1" style="background-color:lavender;">.col-sm-4</span>
+                <span class="col-sm-1" style="background-color:lavender;">.col-sm-4</span>
+                <span class="col-sm-1" style="background-color:lavender;">.col-sm-4</span>
+                <span class="col-sm-1" style="background-color:lavender;">.col-sm-4</span>
+                <span class="col-sm-1" style="background-color:lavender;">.col-sm-4</span>
+                <span class="col-sm-1" style="background-color:lavender;">.col-sm-4</span>
+                <span class="col-sm-1" style="background-color:lavender;">.col-sm-4</span>
+
+            </div>
         </div>
     </div>
     <script src="js/weather.js"></script>
