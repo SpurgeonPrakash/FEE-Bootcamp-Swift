@@ -1,0 +1,72 @@
+
+body{
+    /*background-image: url("tae.gif");*/
+    background-repeat: no-repeat;
+    background-color:#efefef;
+}
+h1 {
+    font-family: sans-serif;
+    color: grey;
+    text-align:center;
+    margin:0px;
+}
+
+/*h1:after {
+    position: absolute;
+    left: 50%;
+    content: '';
+    height: 40px;
+    height: 5px;
+    background:purple;
+    transition: all 0.5s linear;
+    width: 0;
+    bottom: 0;  
+}
+
+h1:hover:after {
+    width: 270px;
+    margin-left: -135px;
+}*/
+.container{
+    width: 1000px;
+    height: 500px;
+    position: relative;
+    background-image: url("../images/background.jpg");
+    background-repeat: repeat;
+    border:1px solid black;
+    margin:20px auto;
+}
+#cont{
+    box-shadow: 0 0 30px green;
+}
+.car{
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+.car img{
+    width:130px;
+    height:60px;
+}
+.buttons{
+    width:500px;
+    margin-left:400px;
+    float:left;
+}
+input[type=button] {
+    background: lightGray;
+    width: 40%;
+    font-size: 25px;
+    font-weight: 600;
+    border-radius: 7px;
+    margin-left: 13px;
+    margin-top: 10px;
+  }
+p{
+    color:grey;
+    font-size: 200%;
+    font-family: sans-serif;
+    float:left;
+    margin-top:7px;
+}
+

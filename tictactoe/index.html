@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Tic-Tac-Toe</title>
+</head>
+
+<body class="firstImage">
+
+
+<h1 class="heading">TIC TAC TOE<br/></h1>
+<h1 class="gameStarts">GAME STARTS IN.....<br/>
+<div id="some_div"></div></h1>
+
+
+<script>
+var timeLeft = 5;
+var elem = document.getElementById('some_div');
+var timerId = setInterval(countdown, 1000);
+
+function countdown() {
+    if (timeLeft == -1) {
+        clearTimeout(timerId);
+        
+    } else {
+        elem.innerHTML = timeLeft;
+        timeLeft--;
+    }
+}
+setTimeout(function(){
+       window.location.href = 'start.html';
+    }, 7000);
+
+</script>
+
+</body>
+</html>
