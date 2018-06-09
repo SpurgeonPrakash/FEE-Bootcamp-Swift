@@ -2,6 +2,8 @@ $('#search').click(()=>{
     const place=$('#cname').val();
     $('#searched-place').html(place);
 });
+const date=moment().format('dddd,h:00 a');                   
+$('#day').html(date)
 
 // var currentTime = new Date(),
 //       hours = currentTime.getHours(),
