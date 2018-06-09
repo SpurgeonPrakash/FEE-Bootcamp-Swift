@@ -17,9 +17,10 @@ var Batsman = /** @class */ (function (_super) {
         var _this = _super.call(this, name) || this;
         _this.NumberOfBallsFaced = 0;
         _this.NumberOfRunsScored = 0;
-        _this.IsOut = false;
-        _this.dismissalType = "Not Out";
         _this.typeOfWicket = "Not Out";
+        _this.dismissalInfo = {};
+        _this.dismissalType = null;
+        _this.IsOut = false;
         return _this;
     }
     Batsman.prototype.addtypeOfWicket = function (wicket_type) {
@@ -63,8 +64,8 @@ var Batsman = /** @class */ (function (_super) {
     Batsman.prototype.numberOfRuns_set = function (num_of_runs) {
         this.NumberOfRunsScored = num_of_runs;
     };
-    Batsman.prototype.numberOfBalls_set = function (num_of_balls) {
-        this.NumberOfBallsFaced += num_of_balls;
+    Batsman.prototype.numberOfBalls_set = function () {
+        this.NumberOfBallsFaced++;
     };
     Batsman.prototype.set_Isout = function (isout) {
         this.IsOut = isout;

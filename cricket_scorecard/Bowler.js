@@ -18,8 +18,15 @@ var Bowler = /** @class */ (function (_super) {
         _this.NumberOfRunsGiven = 0;
         _this.NumberOfBalls = 0;
         _this.NumberOfWickets = 0;
+        _this.Madein = 0;
         return _this;
     }
+    Bowler.prototype.madein = function () {
+        this.Madein++;
+    };
+    Bowler.prototype.get_madein = function () {
+        return this.Madein;
+    };
     Object.defineProperty(Bowler.prototype, "numberOfRunsGiven", {
         get: function () {
             return this.NumberOfRunsGiven;

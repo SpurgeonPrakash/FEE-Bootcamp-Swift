@@ -1,19 +1,21 @@
 import {Player} from './Player'
+import { Input, DismissalInfo } from './input';
 export class Batsman extends Player{
     private NumberOfRunsScored:number;
     private NumberOfBallsFaced:number;
-    private IsOut:boolean;
-    private dismissalType:String;
-    private dismissalInfo:object;
     private typeOfWicket:string;
+    private dismissalInfo:DismissalInfo;
+    private dismissalType:string|null;
+    private IsOut:boolean;
     constructor(name:string)
     {
         super(name);
         this.NumberOfBallsFaced=0;
         this.NumberOfRunsScored=0;
-        this.IsOut=false;
-        this.dismissalType="Not Out";
         this.typeOfWicket="Not Out";
+        this.dismissalInfo={};
+        this.dismissalType=null;
+        this.IsOut=false;
     }
     addtypeOfWicket(wicket_type:string)
     {
@@ -27,7 +29,7 @@ export class Batsman extends Player{
     get numberOfRuns():number{
             return this.NumberOfRunsScored;
     }
-    addDismissalInfo(data :object)
+    addDismissalInfo(data :DismissalInfo)
     {
         // console.log(data);
         this.dismissalInfo=data;
@@ -46,10 +48,10 @@ export class Batsman extends Player{
     numberOfRuns_set(num_of_runs:number){
            this.NumberOfRunsScored=num_of_runs;
     }
-    numberOfBalls_set(num_of_balls:number){
-           this.NumberOfBallsFaced+=num_of_balls;
+    numberOfBalls_set(){
+           this.NumberOfBallsFaced++;
     }
-    set_Isout(isout){
+    set_Isout(isout:boolean){
         this.IsOut=isout;
     }
     get numberOfBalls():number{

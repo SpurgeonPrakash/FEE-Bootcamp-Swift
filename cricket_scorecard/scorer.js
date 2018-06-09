@@ -9,6 +9,8 @@ var Scorer = /** @class */ (function () {
         this.activeBowler = null;
         this.balls = 0;
         this.wickets = 0;
+        this.flag = false;
+        this.count = 0;
     }
     Scorer.prototype.addBatsman = function (batsman) {
         this.listOfBatsman.push(batsman);
@@ -22,7 +24,7 @@ var Scorer = /** @class */ (function () {
             for (var i = 0; i < _this.listOfBatsman.length; i++) {
                 if (_this.listOfBatsman[i].playerName == Data.batsmanName && _this.listOfBatsman[i].isOut != true) {
                     _this.playerOnStrike = _this.listOfBatsman[i];
-                    _this.playerOnStrike.numberOfBalls_set(1);
+                    _this.playerOnStrike.numberOfBalls_set();
                     _this.playerOnStrike.addRuns(Data.runsScored);
                     break;
                 }
@@ -37,19 +39,40 @@ var Scorer = /** @class */ (function () {
             }
             if (Data.isOut) {
                 _this.wickets++;
-                _this.activeBowler.addWickets();
-                _this.playerOnStrike.set_Isout(true);
-                _this.playerOnStrike.addDismissalType(Data.dismissalType);
-                //    console.log(Data.dismissalInfo);
-                _this.playerOnStrike.addDismissalInfo(Data.dismissalInfo);
-                //   this.playerOnStrike.addtypeOfWicket(Data.dismissalInfo);
-                if (Data.dismissalType == "Run Out") {
+                if (_this.activeBowler)
+                    _this.activeBowler.addWickets();
+                if (_this.playerOnStrike)
+                    _this.playerOnStrike.set_Isout(true);
+                if (Data.dismissalType && _this.playerOnStrike) {
+                    _this.playerOnStrike.addDismissalType(Data.dismissalType);
+                }
+                if (Data.dismissalInfo && _this.playerOnStrike) {
+                    _this.playerOnStrike.addDismissalInfo(Data.dismissalInfo);
+                }
+                if (Data.dismissalType == "Run Out" && _this.playerOnStrike) {
                     _this.playerOnStrike.addtypeOfWicket("(Run Out)");
                 }
-                else if (Data.dismissalType == "Caught") {
+                else if (Data.dismissalType == "Caught" && Data.dismissalInfo && _this.playerOnStrike) {
                     _this.playerOnStrike.addtypeOfWicket("c " + Data.dismissalInfo.fielderName + " b " + Data.bowlerName);
                 }
+                if (_this.flag == false && Data.runsScored == 0) {
+                    _this.flag = true;
+                    _this.count = 1;
+                }
+                else if (_this.flag == true && Data.runsScored == 0) {
+                    _this.count++;
+                    if (_this.count == 6) {
+                        if (_this.activeBowler)
+                            _this.activeBowler.madein();
+                        _this.count = 0;
+                        _this.flag = false;
+                    }
+                }
+                else
+                    _this.flag = false;
             }
+            if (Data.extraInfo)
+                _this.totalScore += Data.extraInfo.runsOffered;
             _this.totalScore += Data.runsScored;
             _this.balls++;
         });
@@ -65,10 +88,10 @@ var Scorer = /** @class */ (function () {
         var rr = this.totalScore / overs * (6 / 10);
         console.log("Total                " + this.totalScore + " for " + this.wickets + " in " + overs + "  (RR - " + rr + ") ");
         console.log('');
-        console.log("BOwler                R                W");
+        console.log("BOwler      m           O                R                W");
         console.log('');
         this.listOfBowler.forEach(function (bowler) {
-            console.log(bowler.playerName + "              " + bowler.numberOfRunsGiven + "             " + bowler.numberOfWickets);
+            console.log(bowler.playerName + "      " + bowler.get_madein() + "    " + (Math.floor((bowler.numberOfBalls) / 6) + (bowler.numberOfBalls % 6) / 10) + "         " + bowler.numberOfRunsGiven + "             " + bowler.numberOfWickets);
             console.log('');
         });
     };
