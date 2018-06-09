@@ -24,11 +24,62 @@ $('#search').click(()=>{
             }); 
             $('#cel').click(()=>{
                 $('#temp').text(ctemp); 
-            }); 
+            });
+            plotChart();
         });
+        const plotChart = () => {
+            Highcharts.chart('chart', {
+                chart: {
+                    type: 'areaspline',
+                    width:600,
+                    height:200
+                },
+                title: {
+                    text: ''
+                },
+                legend:{
+                    enabled: false
+                },
+                xAxis: {
+                    categories: ["3:00pm","6:00pm","9:00pm","00:00am","3:00am","6:00am","9:00am","12:00pm"],
+                },
+                yAxis: {
+                    title: {
+                        text: ''
+                    },
+                    labels: {
+                        format: " "
+                      },
+                },
+                tooltip: {
+                    shared: true,
+                    valueSuffix: ' units'
+                },
+                credits: {
+                    enabled: false
+                },
+                plotOptions: {
+                    areaspline: {
+                        fillOpacity: 0.5
+                    },
+                    series: {
+                        dataLabels: {
+                          enabled: true
+                        },
+                        animation: false
+                    },
+                },
+                series: [{
+                    name: "Temperature",
+                    data: [29,30,29,26,24,23,23,24],
+                    color: "#fff5cc"
+                }]
+            });
+        }
     }
     getWeatherDemo();
 });
+
 function changeFahtoCelsius(fahrenheit)
 {
     return  Math.round(((fahrenheit-32)*5)/9);
