@@ -12,9 +12,19 @@ $('#search').click(()=>{
             const condition=weather_obj.item.condition.text;
             const ftemp=weather_obj.item.condition.temp;
             const ctemp=changeFahtoCelsius(ftemp);
+            const humidity=weather_obj.atmosphere.humidity;
+            const wind=weather_obj.wind.speed;
             $('#searched-place').html(cname+','+region+','+country);
             $('#cond').html(condition);
-            $('#temp').text(ctemp);  
+            $('#temp').text(ctemp); 
+            $('#humidity').html(humidity+' %');
+            $('#wind').html(wind+' km/hr');
+            $('#fah').click(()=>{
+                $('#temp').text(ftemp); 
+            }); 
+            $('#cel').click(()=>{
+                $('#temp').text(ctemp); 
+            }); 
         });
     }
     getWeatherDemo();

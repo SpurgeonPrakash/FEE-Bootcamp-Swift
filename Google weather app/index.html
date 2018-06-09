@@ -35,7 +35,7 @@
         <div class="day" id="current-day">
             <span id="day">Friday</span>
         </div>
-        <div class="weather-condition">
+        <div class="weather-condition" id="cond">
         </div>
         <div class="banner">
             <div class="banner-left">
@@ -44,10 +44,11 @@
                 </div>
                 <div class="column2" id="temp-disp">
                     <p id="temp">40</p>
-                        <sup>
-                            <a href="">&#8457;</a>/
-                            <a href="">&#8451;</a>
-                        </sup>
+                    <sup>
+                        <a id="cel">&#8451;</a>
+                        |
+                        <a id="fah">&#8457;</a>
+                    </sup>
 
                 </div>
 
@@ -58,7 +59,7 @@
                         <span id="precipitation"> 80%</span>
                     </div>
                     <div class="humidity"> Humidity:
-                        <span id="humidity"> 80%</span>
+                        <span id="humidity">80%</span>
                     </div>
                     <div class="wind"> Wind:
                         <span id="wind"> 80%</span>
@@ -77,17 +78,43 @@
         </div>
         <div class="forecast">
             <div class="row">
-                <span class="col-sm-1" style="background-color:lavender;">.col-sm-4</span>
-                <span class="col-sm-1" style="background-color:lavender;">.col-sm-4</span>
-                <span class="col-sm-1" style="background-color:lavender;">.col-sm-4</span>
-                <span class="col-sm-1" style="background-color:lavender;">.col-sm-4</span>
-                <span class="col-sm-1" style="background-color:lavender;">.col-sm-4</span>
-                <span class="col-sm-1" style="background-color:lavender;">.col-sm-4</span>
-                <span class="col-sm-1" style="background-color:lavender;">.col-sm-4</span>
-                <span class="col-sm-1" style="background-color:lavender;">.col-sm-4</span>
-
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="row">
+                            <div class="col-xs-3" id="grid">
+                                1
+                            </div>
+                            <div class="col-xs-3" id="grid">
+                                2
+                            </div>
+                            <div class="col-xs-3" id="grid">
+                                3
+                            </div>
+                            <div class="col-xs-3" id="grid">
+                                4
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="row">
+                            <div class="col-xs-3" id="grid">
+                                5
+                            </div>
+                            <div class="col-xs-3" id="grid">
+                                6
+                            </div>
+                            <div class="col-xs-3" id="grid">
+                                7
+                            </div>
+                            <div class="col-xs-3" id="grid">
+                                8
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
     </div>
     <script src="js/weather.js"></script>
 </body>
