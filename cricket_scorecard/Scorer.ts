@@ -1,6 +1,7 @@
 import { Batsman } from './batsman';
 import { Bowler } from './Bowler';
 import { Input,DismissalInfo } from './input';
+const chalk = require('chalk');
 export class Scorer {
     listOfBatsman: Array<Batsman>;
     listOfBowler: Array<Bowler>;
@@ -11,6 +12,8 @@ export class Scorer {
     wickets:number;
     flag:boolean;
     count:number;
+     
+   
     constructor() {
         this.totalScore = 0;
         this.listOfBatsman = [];
@@ -101,22 +104,26 @@ export class Scorer {
         })
     }
     printScore() {
-        console.log('--------------------India vs West Indies---------------------------');
+        console.log(chalk.blue('India') + ' vs ' + chalk.red('England'));
         console.log('');
         this.listOfBatsman.forEach(batsman => {
-            console.log(`${batsman.playerName}      ${batsman.typeofWicket}   ${batsman.numberOfRuns}(${batsman.numberOfBalls})`);
-            console.log('');
+            if(batsman.isOut)
+            console.log((batsman.playerName).padEnd(15)+(batsman.typeofWicket).padEnd(35)+(batsman.numberOfRuns)+"("+(batsman.numberOfBalls)+")");
+            else
+            console.log(chalk.green((batsman.playerName+ '*').padEnd(15))+(batsman.typeofWicket).padEnd(35)+(batsman.numberOfRuns)+"("+(batsman.numberOfBalls)+")");
         })
+        console.log('');
         var overs=(Math.floor((this.balls)/6)+(this.balls%6)/10);
         var rr=this.totalScore/overs*(6/10);
-        
-            console.log(`Total                ${this.totalScore} for ${this.wickets} in ${overs}  (RR - ${rr}) `);
+        console.log('Total'.padEnd(15)+chalk.blue(this.totalScore)+" for "+chalk.red(this.wickets)+"in "+overs+"overs "+" (RR - "+(rr)+")");
         console.log('');
-        console.log(`BOwler      m           O                R                W`);
+        console.log("BOwler".padEnd(20)+"m".padEnd(15)+"O".padEnd(15)+"R".padEnd(15)+"W".padEnd(15));
         console.log('');
         this.listOfBowler.forEach(bowler=>{
-            console.log(`${bowler.playerName}      ${bowler.get_madein()}    ${Math.floor((bowler.numberOfBalls)/6)+(bowler.numberOfBalls%6)/10}         ${bowler.numberOfRunsGiven}             ${bowler.numberOfWickets}`);
-            console.log('');
+            var bowler_over=Math.floor((bowler.numberOfBalls)/6)+(bowler.numberOfBalls%6)/10;
+            var made=bowler.get_madein;
+            console.log((bowler.playerName).padEnd(15)+(made).padEnd(20)+(bowler_over).padEnd(25)+(bowler.numberOfRunsGiven).padEnd(35)+(bowler.numberOfWickets).padEnd(45));
+            
         })
     }
 }
