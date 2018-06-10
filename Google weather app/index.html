@@ -18,103 +18,113 @@
 </head>
 
 <body>
-    <br>
-    <div class="input-group">
-        <span class="input-group-addon">City Name</span>
-        <input id="cname" type="text" class="form-control" name="msg" placeholder="Enter city name here">
-    </div>
-    <br>
-    <div class="button-group">
-        <button class="btn btn-primary" id="search">Search</button>
-    </div>
-    <div class="main-container">
-        <div class="searched-place" id="searched-place">
-            <span id="place">Hyderabad,Telangana
+    <br/>
+        <div class="input-group">
+            <input type="text" class="form-control" id="cname" placeholder="Search for...">
+            <span class="input-group-btn">
+            <button class="btn btn-default" type="button" id="search"><svg focusable="false" width="25px" fill="#4285f4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></button>
             </span>
         </div>
-        <div class="day" id="current-day">
-            <span id="day">Friday</span>
-        </div>
-        <div class="weather-condition" id="cond">
-        </div>
-        <div class="banner">
-            <div class="banner-left">
-                <div class="column1">
-                    icon
-                </div>
-                <div class="column2" id="temp-disp">
-                    <p id="temp">40</p>
-                    <sup>
-                        <a id="cel">&#8451;</a>
-                        |
-                        <a id="fah">&#8457;</a>
-                    </sup>
-
-                </div>
-
+    <br/>
+<!--<div class="button-group">
+<button class="btn btn-primary"
+</div>-->
+        <br><br>
+        <div class="main-container" id="main-con">
+            <div class="searched-place" id="searched-place">
+                <span id="place">Hyderabad,Telangana
+                </span>
             </div>
-            <div class="banner-right">
-                <div class="row1">
-                    <div class="precipitation"> Precipitation:
-                        <span id="precipitation"> 80%</span>
+            <div class="day" id="current-day">
+                 <span id="day">Saturday</span>
+            </div>
+            <div class="weather-condition">
+                <p id="cond">Cloudy</p>
+            </div>
+            <div class="banner">
+                <div class="banner-left">
+                    <div class="column1">
+                      <img src="images/fog.png" id="cond-img"></img>
                     </div>
-                    <div class="humidity"> Humidity:
-                        <span id="humidity">80%</span>
-                    </div>
-                    <div class="wind"> Wind:
-                        <span id="wind"> 80%</span>
+                    <div class="column2" id="temp-disp">
+                        <div class="col2_1">
+                            <span id="temp">40</span>
+                        </div>
+                        <div class="col2_2">
+                            <a id="cel">&#8451;</a>&nbsp|
+                            <a id="fah">&#8457;</a>
+                        </div>
                     </div>
                 </div>
-                <div class="row2">
-                    <div class="btn-group">
+                 <div class="banner-right">
+                    <div class="row1">
+                        <div class="pressure"> Pressure: <span id="pressure"> 80Hg</span></div>
+                        <div class="humidity"> Humidity: <span id="humidity"> 80%</span></div>
+                        <div class="wind"> Wind:<span id="wind"> 80%</span></div>
+                    </div>
+                    <div class="row2">
+                        <div class="btn-group">
                         <button type="button" class="btn btn-primary">Temperature</button>
-                        <button type="button" class="btn btn-primary">Precipitation</button>
+                        <button type="button" class="btn btn-primary">Pressure</button>
                         <button type="button" class="btn btn-primary">Wind</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="chart">
-        </div>
-        <div class="forecast">
-            <div class="row">
+            <div class="chart">
+            </div>
+            <div class="forecast">
                 <div class="row">
-                    <div class="col-xs-6">
+                    <div class="col-xs-6" id="fore1">
                         <div class="row">
-                            <div class="col-xs-3" id="grid">
-                                1
+                            <div class="col-xs-3"id="grid1">
+                              <p id="fday1">Sun</p>
+                              <img src="images/cloudy.png" id="fimg1">
+                              <p><span id="high1">31</span><sup>o</sup><span id="low1">27</span><sup>o</sup></p>
                             </div>
-                            <div class="col-xs-3" id="grid">
-                                2
+                            <div class="col-xs-3"id="grid2">
+                              <p id="fday2">Sun</p>
+                              <img src="images/cloudy.png" id="fimg2">
+                              <p><span id="high2">31</span><sup>o</sup><span id="low2">27</span><sup>o</sup></p>
                             </div>
-                            <div class="col-xs-3" id="grid">
-                                3
+                            <div class="col-xs-3"id="grid3">
+                              <p id="fday3">Sun</p>
+                              <img src="images/cloudy.png" id="fimg3">
+                              <p><span id="high3">31</span><sup>o</sup><span id="low3">27</span><sup>o</sup></p>
                             </div>
-                            <div class="col-xs-3" id="grid">
-                                4
+                            <div class="col-xs-3"id="grid4">
+                              <p id="fday4">Sun</p>
+                              <img src="images/cloudy.png" id="fimg4">
+                              <p><span id="high4">31</span><sup>o</sup><span id="low4">27</span><sup>o</sup></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-6">
                         <div class="row">
-                            <div class="col-xs-3" id="grid">
-                                5
+                            <div class="col-xs-3"id="grid5">
+                              <p id="fday5">Sun</p>
+                              <img src="images/cloudy.png" id="fimg5">
+                              <p><span id="high5">31</span><sup>o</sup><span id="low5">27</span><sup>o</sup></p>
                             </div>
-                            <div class="col-xs-3" id="grid">
-                                6
+                            <div class="col-xs-3"id="grid6">
+                              <p id="fday6">Sun</p>
+                              <img src="images/cloudy.png" id="fimg6">
+                              <p><span id="high6">31</span><sup>o</sup><span id="low6">27</span><sup>o</sup></p>
                             </div>
-                            <div class="col-xs-3" id="grid">
-                                7
+                            <div class="col-xs-3"id="grid7">
+                              <p id="fday7">Sun</p>
+                              <img src="images/cloudy.png" id="fimg7">
+                              <p><span id="high7">31</span><sup>o</sup><span id="low7">27</span><sup>o</sup></p>
                             </div>
-                            <div class="col-xs-3" id="grid">
-                                8
+                            <div class="col-xs-3"id="grid8">
+                              <p id="fday8">Sun</p>
+                              <img src="images/cloudy.png" id="fimg8">
+                              <p><span id="high8">31</span><sup>o</sup><span id="low8">27</span><sup>o</sup></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-    <script src="js/weather.js"></script>
+<script src="js/weather.js"></script>
 </body>
