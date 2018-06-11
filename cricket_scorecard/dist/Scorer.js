@@ -80,7 +80,6 @@ var Scorer = /** @class */ (function () {
     };
     Scorer.prototype.printScore = function () {
         console.log(chalk.blue('India') + ' vs ' + chalk.red('England'));
-        console.log('');
         this.listOfBatsman.forEach(function (batsman) {
             if (batsman.isOut)
                 console.log((batsman.playerName).padEnd(15) + (batsman.typeofWicket).padEnd(35) + (batsman.numberOfRuns) + "(" + (batsman.numberOfBalls) + ")");
@@ -90,14 +89,14 @@ var Scorer = /** @class */ (function () {
         console.log('');
         var overs = (Math.floor((this.balls) / 6) + (this.balls % 6) / 10);
         var rr = this.totalScore / overs * (6 / 10);
-        console.log('Total'.padEnd(15) + chalk.blue(this.totalScore) + " for " + chalk.red(this.wickets) + "in " + overs + "overs " + " (RR - " + (rr) + ")");
+        console.log(chalk.yellow('Total').padEnd(15) + chalk.blue(this.totalScore) + " for " + chalk.red(this.wickets) + " in " + chalk.yellow(overs) + " overs " + " (RR - " + (rr) + ")");
         console.log('');
-        console.log("BOwler".padEnd(20) + "m".padEnd(15) + "O".padEnd(15) + "R".padEnd(15) + "W".padEnd(15));
+        console.log("BOwler".padEnd(20) + "M".padEnd(15) + "O".padEnd(16) + "R".padEnd(15) + "W");
         console.log('');
         this.listOfBowler.forEach(function (bowler) {
             var bowler_over = Math.floor((bowler.numberOfBalls) / 6) + (bowler.numberOfBalls % 6) / 10;
-            var made = bowler.get_madein;
-            console.log((bowler.playerName).padEnd(15) + (made).padEnd(20) + (bowler_over).padEnd(25) + (bowler.numberOfRunsGiven).padEnd(35) + (bowler.numberOfWickets).padEnd(45));
+            //var made=bowler.get_madein();
+            console.log((bowler.playerName).padEnd(20) + (bowler.get_madein()) + "              " + (bowler_over) + "              " + (bowler.numberOfRunsGiven) + "              " + (bowler.numberOfWickets));
         });
     };
     return Scorer;
