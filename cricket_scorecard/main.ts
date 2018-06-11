@@ -10,7 +10,7 @@ for(var i=0;i<batsman_list.length;i++)
     scorer.addBatsman(new Batsman(batsman_list[i]));
     scorer.addBowler(new Bowler(bowler_list[i]));
 }
-var obj=new Array<Input>();
+let obj=new Array<Input>();
 obj = [
     {
         runsScored: 0,
@@ -103,7 +103,13 @@ obj = [
         isOut: false,
         batsmanName: 'Dhoni',
         bowlerName: 'watson'
-    }
+    },
+    {
+        runsScored: 1,
+        isOut: false,
+        batsmanName: 'Dhoni',
+        bowlerName: 'Lance'
+    },
 ];
 
 

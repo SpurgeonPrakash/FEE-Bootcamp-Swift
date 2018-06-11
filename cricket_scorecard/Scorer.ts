@@ -31,15 +31,72 @@ export class Scorer {
     addBowler(bowler: Bowler) {
         this.listOfBowler.push(bowler);
     }
+    updateBatsman(playerOnStrike:Batsman,runs:number)
+    {
+        this.playerOnStrike = playerOnStrike;
+        this.playerOnStrike.numberOfBalls_set();
+        this.playerOnStrike.addRuns(runs);
+    }
+    updateBowler(activeBowler:Bowler,runs:number)
+    {
+        this.activeBowler = activeBowler;
+        this.activeBowler.addRuns(runs);
+        this.activeBowler.addBalls();
+    }
+    madein(runs:number)
+    {
+        if(this.flag==false&&runs==0)
+        {
+            this.flag=true;
+            this.count=1;
+        }
+        else if(this.flag==true&&runs==0)
+        {
+            this.count++;
+            if(this.count==6){
+                if(this.activeBowler)
+                this.activeBowler.madein();
+                this.count=0;
+                this.flag=false;
+            }
+        }
+        else
+            this.flag=false;
+   }
+   onOut(Data:Input)
+   {
+    if(Data.isOut)
+           {
+               this.wickets++;
+               if(this.activeBowler)
+                     this.activeBowler.addWickets();
+               if(this.playerOnStrike)
+               {
+                    this.playerOnStrike.set_Isout(true);
+                    if(Data.dismissalType )
+                    this.playerOnStrike.addDismissalType(Data.dismissalType);
+                    if(Data.dismissalInfo)
+                    {
+                        this.playerOnStrike.addDismissalInfo(Data.dismissalInfo);
+                    }
+                    if(Data.dismissalType=="Run Out")
+                    {
+                        this.playerOnStrike.addtypeOfWicket("(Run Out)");
+                    }
+                     else if(Data.dismissalType=="Caught" &&Data.dismissalInfo)
+                    {
+                         this.playerOnStrike.addtypeOfWicket("c "+Data.dismissalInfo.fielderName+" b "+Data.bowlerName);
+                    }
+               }
+            }
+   }
     calculateScore(arr:Array <Input>) {
         arr.forEach((Data, ballNumber) => {
             for(var i=0;i<this.listOfBatsman.length;i++)
             {
                 if(this.listOfBatsman[i].playerName==Data.batsmanName && this.listOfBatsman[i].isOut!=true)
                 {
-                    this.playerOnStrike = this.listOfBatsman[i];
-                    this.playerOnStrike.numberOfBalls_set();
-                    this.playerOnStrike.addRuns(Data.runsScored);
+                    this.updateBatsman(this.listOfBatsman[i],Data.runsScored);
                    break;
                 }
             }
@@ -47,55 +104,13 @@ export class Scorer {
             {
                 if(this.listOfBowler[i].playerName==Data.bowlerName)
                 {
-                    this.activeBowler = this.listOfBowler[i];
-                    this.activeBowler.addRuns(Data.runsScored);
-                    this.activeBowler.addBalls();
+                    this.updateBowler(this.listOfBowler[i],Data.runsScored);
                     break;
                 }
             }
-           if(Data.isOut)
-           {
-               this.wickets++;
-               if(this.activeBowler)
-                     this.activeBowler.addWickets();
-               if(this.playerOnStrike)
-                    this.playerOnStrike.set_Isout(true);
-               if(Data.dismissalType && this.playerOnStrike)
-               {
-                this.playerOnStrike.addDismissalType(Data.dismissalType);
-               }
-               if(Data.dismissalInfo &&this.playerOnStrike)
-               {
-                this.playerOnStrike.addDismissalInfo(Data.dismissalInfo);
-               }
+           this.onOut(Data);
+               this.madein(Data.runsScored);
             
-                if(Data.dismissalType=="Run Out" &&this.playerOnStrike)
-                {
-                    this.playerOnStrike.addtypeOfWicket("(Run Out)");
-                }
-                else if(Data.dismissalType=="Caught" &&Data.dismissalInfo &&this.playerOnStrike)
-                {
-                    this.playerOnStrike.addtypeOfWicket("c "+Data.dismissalInfo.fielderName+" b "+Data.bowlerName);
-                }
-                if(this.flag==false&&Data.runsScored==0)
-                {
-                    this.flag=true;
-                    this.count=1;
-                }
-                else if(this.flag==true&&Data.runsScored==0)
-                {
-                    this.count++;
-                    if(this.count==6){
-                        if(this.activeBowler)
-                        this.activeBowler.madein();
-                        this.count=0;
-                        this.flag=false;
-                    }
-                }
-                else
-                this.flag=false;
-
-           }
            if(Data.extraInfo)
             this.totalScore += Data.extraInfo.runsOffered;
             this.totalScore+=Data.runsScored;
@@ -104,7 +119,10 @@ export class Scorer {
         })
     }
     printScore() {
+        console.log(chalk.magenta("------------------------------------------------------------------------"));
         console.log(chalk.blue('India') + ' vs ' + chalk.red('England'));
+        console.log(chalk.magenta("------------------------------------------------------------------------"));
+
         this.listOfBatsman.forEach(batsman => {
             if(batsman.isOut)
             console.log((batsman.playerName).padEnd(15)+(batsman.typeofWicket).padEnd(35)+(batsman.numberOfRuns)+"("+(batsman.numberOfBalls)+")");
@@ -114,9 +132,9 @@ export class Scorer {
         console.log('');
         var overs=(Math.floor((this.balls)/6)+(this.balls%6)/10);
         var rr=this.totalScore/overs*(6/10);
-        console.log(chalk.yellow('Total').padEnd(15)+chalk.blue(this.totalScore)+" for "+chalk.red(this.wickets)+" in "+chalk.yellow(overs)+" overs "+" (RR - "+(rr)+")");
+        console.log(chalk.yellow(('Total-').padEnd(15))+chalk.blue(this.totalScore)+" for "+chalk.red(this.wickets)+" in "+chalk.yellow(overs)+" overs "+" (RR - "+(rr)+")");
         console.log('');
-        console.log("BOwler".padEnd(20)+"M".padEnd(15)+"O".padEnd(16)+"R".padEnd(15)+"W");
+        console.log("Bowler".padEnd(20)+"M".padEnd(15)+"O".padEnd(16)+"R".padEnd(15)+"W");
         console.log('');
         this.listOfBowler.forEach(bowler=>{
             var bowler_over=Math.floor((bowler.numberOfBalls)/6)+(bowler.numberOfBalls%6)/10;
@@ -124,5 +142,6 @@ export class Scorer {
             console.log((bowler.playerName).padEnd(20)+(bowler.get_madein())+"              "+(bowler_over)+"              "+(bowler.numberOfRunsGiven)+"              "+(bowler.numberOfWickets));
             
         })
+        console.log(chalk.magenta("------------------------------------------------------------------------"));
     }
 }

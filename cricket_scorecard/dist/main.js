@@ -103,7 +103,13 @@ obj = [
         isOut: false,
         batsmanName: 'Dhoni',
         bowlerName: 'watson'
-    }
+    },
+    {
+        runsScored: 1,
+        isOut: false,
+        batsmanName: 'Dhoni',
+        bowlerName: 'Lance'
+    },
 ];
 scorer.calculateScore(obj);
 scorer.printScore();
